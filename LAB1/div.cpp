@@ -8,7 +8,7 @@ using namespace std;
 // 0 for s1>s2
 // 1 for s1<s2
 // 2 for s1==s2
-int compare(string s1,string s2){
+int comp(string s1,string s2){
 	if(s1.length()>s2.length()){
 		return 0;
 	}
@@ -41,31 +41,31 @@ int main(){
 	int l2 = s2.length();
 	string temp;
 	temp=s2;
-	int p = l1-l2;
+	int power = l1-l2;
 	long long int ans=0;
 	for(int i=0;i<l1-l2;i++){
 		temp.append("0");
 		
 	}
 	if(s2.length()==1 && s2[0]=='0'){
-		cout<<"invalid operation"<<endl;
+		cout<<"Invalid operation"<<endl;
 		return 0;
 	}
-	int times=0;
-	while(s1.length() >= s2.length() && (compare(s1,s2)==0 || compare(s1,s2)==2)){
+	int t=0;
+	while(s1.length() >= s2.length() && comp(s1,s2)!=1){
 		
 		while(1){
 
-			if(compare(s1,temp)==0 || compare(s1,temp)==2){
+			if(comp(s1,temp)!=1){
 				s1 = sub(s1,temp);
-				times++;
+				t++;
 			}
 			else{
 				if(temp.length()>=l2){
 					temp.erase(temp.end()-1);
-					ans += pow(10,p)*times;
-					p--;
-					times=0;
+					ans += pow(10,power)*t;
+					power--;
+					t=0;
 					break;
 				}
 				
