@@ -42,20 +42,29 @@ string add(string s1,string s2){
 	string str;
 	int i=0;
 	if(s[0] >0){str += to_string(s[0]);}
-		
+
 	for(i=1;i<maxx+1;i++){
 		str += to_string(s[i]);
 	}
-	
-	
+
+
 return str;
 
 }
 int main(){
+    int t;
+    cin>>t;
+    string ans[t];
+    for(int i=0;i<t;i++){
+            ans[i] = "";
 	string s1,s2;
 	cin>>s1>>s2;
-	string s  = add(s1,s2);
-	cout<<s<<endl;
+	ans[i]  = add(s1,s2);
+    }
+    for(int i=0;i<t;i++){
+        cout<<ans[i]<<endl;
+    }
+
 return 0;
-	
+
 }
