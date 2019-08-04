@@ -29,6 +29,11 @@ string multby1(string s1,int n,int zero){
 }
 
 int main(){
+    int t;
+    cin>>t;
+    string ans[t];
+    for(int i=0;i<t;i++){
+            ans[i] = "";
 	string s1,s2;
 	cin>>s1>>s2;
 	int m = s2.length();
@@ -38,7 +43,12 @@ int main(){
 		string temp2 = multby1(s1,(s2[i]-'0'),zeros);
 		temp1 = add(temp1,temp2);
 		zeros++;
+
 	}
-	cout<<temp1<<endl;
+	ans[i] = temp1;
+    }
+	for(int i=0;i<t;i++){
+        cout<<ans[i]<<endl;
+	}
 return 0;
 }
