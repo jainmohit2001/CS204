@@ -39,6 +39,11 @@ string complement9(string s2,int len){
 	return s;
 }
 int main(){
+    int t;
+    cin>>t;
+    string ans[t];
+    for(int i=0;i<t;i++){
+            ans[i]= "";
 	string s1,s2;
 	cin>>s1>>s2;
 	int len = max(s1.length(),s2.length());
@@ -47,12 +52,17 @@ int main(){
 	int maxx = max(s1.length(),s2_com.length());
 	if(s3.length()>maxx){
 		s3.erase(s3.begin());
-		cout<<s3<<endl;
+		ans[i] = s3;
 	}
 	else{
 		s3 = complement9(s3,s3.length());
-		cout<<"-"<<s3<<endl;
+		ans[i].append("-");
+        ans[i].append(s3);
 	}
-	
+    }
+    for(int i=0;i<t;i++){
+        cout<<ans[i]<<endl;
+    }
+
 	return 0;
 }
