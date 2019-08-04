@@ -35,6 +35,12 @@ int comp(string s1,string s2){
 
 }
 int main(){
+    int t;
+    cin>>t;
+    string ans[t][2];
+    for(int i=0;i<t;i++){
+            ans[i][0] = "";
+    ans[i][1] = "";
 	string s1,s2;
 	cin>>s1>>s2;
 	int l1 = s1.length();
@@ -42,18 +48,18 @@ int main(){
 	string temp;
 	temp=s2;
 	int power = l1-l2;
-	long long int ans=0;
+	long long int a=0;
 	for(int i=0;i<l1-l2;i++){
 		temp.append("0");
-		
+
 	}
 	if(s2.length()==1 && s2[0]=='0'){
-		cout<<"Invalid operation"<<endl;
+		ans[i][0] = "Invalid operation";
 		return 0;
 	}
 	int t=0;
 	while(s1.length() >= s2.length() && comp(s1,s2)!=1){
-		
+
 		while(1){
 
 			if(comp(s1,temp)!=1){
@@ -63,19 +69,24 @@ int main(){
 			else{
 				if(temp.length()>=l2){
 					temp.erase(temp.end()-1);
-					ans += pow(10,power)*t;
+					a += pow(10,power)*t;
 					power--;
 					t=0;
 					break;
 				}
-				
+
 			}
 		}
 	}
 	if(s1.length()==0){
 		s1.append("0");
 	}
-	cout<<"Quotient is: "<<ans<<endl;
-	cout<<"Remainder is: "<<s1<<endl;
+	ans[i][0] += to_string(a);
+	ans[i][1] = s1;
+    }
+    for(int i=0;i<t;i++){
+        cout<<ans[i][0]<<endl;
+        cout<<ans[i][1]<<endl;
+    }
 	return 0;
 }
