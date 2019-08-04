@@ -8,7 +8,7 @@ using namespace std;
 
 int main(){
     fast;
-    long long int maxx = 1000001;
+    long long int maxx = 100001;
     int arr[maxx] = {0};
     arr[0]=1;
     arr[1] = 1;
@@ -20,14 +20,20 @@ int main(){
 
         }
     }
-    int val=2;
-    bool flag=-1;
+
+
     int t;
     cin>>t;
     string ans[t];
     for(int i=0;i<t;i++){
+          bool flag=-1;
+        int val=2;
         string s;
         cin>>s;
+        if(s=="1"){
+            ans[i] = "Not Prime";
+            continue;
+        }
         ans[i] = "Prime";
         while(1){
             if(val>=1000000){
