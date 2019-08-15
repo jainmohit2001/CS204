@@ -18,7 +18,7 @@ void AddFirst(struct point **start,int a,int b){
 	temp->x = a;
 	temp->y = b;
 	temp->ptr = *start;
-	*start = temp;	
+	*start = temp;
 }
  int DelFirst(struct point **start){
  	if(*start == NULL){
@@ -53,28 +53,20 @@ void AddFirst(struct point **start,int a,int b){
  	return -1;
  }
 
-string searchd(struct point *start, int d){
-	string s = "";
+int searchd(struct point *start, int d){
 	int ctr=0;
 	struct point* temp = start;
 	while(temp != NULL){
 		float dist = ((float)temp->x*(float)temp->x) + ((float)temp->y*(float)temp->y);
 		if((float)d >= sqrt(dist)){
 			ctr++;
-			s.append("(");
-			s += to_string(temp->x);
-			s.append(",");
-			s += to_string(temp->y);
-			s.append(") ");
 		}
-		
 			temp = temp->ptr;
-		
 	}
 	if(ctr==0){
-		return "-1";
+		return -1;
 	}
-return s;
+return ctr;
 }
 string Search(struct point* start,int x1,int y1){
 	string s= "False";
@@ -131,8 +123,8 @@ int main(){
 
 		switch (arr[i][0]){
 			case 1: AddFirst(&head,arr[i][1],arr[i][2]);break;
-			case 2:	cout<<DelFirst(&head)<<endl;break;
-			case 3: cout<<Del(&head,arr[i][1],arr[i][2])<<endl;break;
+			case 2:	if(DelFirst(&head) == -1){cout<<DelFirst(&head)<<endl;}break;
+			case 3: if(Del(&head,arr[i][1],arr[i][2])){cout<<Del(&head,arr[i][1],arr[i][2])<<endl;}break;
 			case 4:	cout<<searchd(head,arr[i][1])<<endl;break;
 			case 5: cout<<Search(head,arr[i][1],arr[i][2])<<endl;break;
 			case 6: cout<<Length(head)<<endl;break;
