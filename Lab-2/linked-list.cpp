@@ -124,7 +124,7 @@ int main(){
 		switch (arr[i][0]){
 			case 1: AddFirst(&head,arr[i][1],arr[i][2]);break;
 			case 2:	if(DelFirst(&head) == -1){cout<<DelFirst(&head)<<endl;}break;
-			case 3: if(Del(&head,arr[i][1],arr[i][2])){cout<<Del(&head,arr[i][1],arr[i][2])<<endl;}break;
+			case 3: if(Del(&head,arr[i][1],arr[i][2]) == -1){cout<<Del(&head,arr[i][1],arr[i][2])<<endl;}break;
 			case 4:	cout<<searchd(head,arr[i][1])<<endl;break;
 			case 5: cout<<Search(head,arr[i][1],arr[i][2])<<endl;break;
 			case 6: cout<<Length(head)<<endl;break;
