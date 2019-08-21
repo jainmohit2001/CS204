@@ -59,9 +59,13 @@ struct node* exptree(string s){
 				stk1.push(s[i]);
 			}
 			else{
-					if(prec(stk1.top()) < prec(s[i])){
+				if(s[i]=='^' && stk1.top()=='^'){
+					stk1.push(s[i]);
+				}
+					else if(prec(stk1.top()) < prec(s[i])){
 						
 					 stk1.push(s[i]);
+
 					}
 				else{
 					while(stk1.empty() == 0){
@@ -72,8 +76,15 @@ struct node* exptree(string s){
 						struct node* n = cn(y);
 						n->rptr = stk2.top();
 						stk2.pop();
-						n->lptr = stk2.top();
-						stk2.pop();
+						struct node* minus = cn("0");
+						
+						if(stk2.empty()==1){
+							n->lptr = minus;
+						}
+						else{
+							n->lptr = stk2.top();
+							stk2.pop();
+						}
 						stk2.push(n);
 					}
 					}
@@ -92,8 +103,15 @@ struct node* exptree(string s){
 					struct node* n = cn(y);
 					n->rptr = stk2.top();
 					stk2.pop();
-					n->lptr = stk2.top();
-					stk2.pop();
+					struct node* minus = cn("0");
+					
+					if(stk2.empty()==1){
+							n->lptr = minus;
+					}
+					else{
+						n->lptr = stk2.top();
+						stk2.pop();
+					}
 					stk2.push(n);
 			}
 			
@@ -110,10 +128,14 @@ struct node* exptree(string s){
 			struct node* n = cn(y);
 			n->rptr = stk2.top();
 			stk2.pop();
-			n->lptr = stk2.top();
-			
-
-			stk2.pop();
+			struct node* minus = cn("0");
+			if(stk2.empty()==1){
+				n->lptr = minus;
+			}
+			else{
+				n->lptr = stk2.top();
+				stk2.pop();
+			}
 			stk2.push(n);
 		}
 	
