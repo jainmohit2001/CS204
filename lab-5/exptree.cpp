@@ -36,7 +36,7 @@ int prec(char c){
 		return 1;
 	}
 }
-struct node* exptree(string s,unordered_map<string,int> *m){
+struct node* exptree(string s,map<string,int> *m){
 	stack<char> stk1;
 	stack<struct node* > stk2;
 	int f=0;
@@ -228,7 +228,7 @@ int main(){
 	for(int i=0;i<t;i++){
 		int n;
 		cin>>n;
-		unordered_map<string , int> mymap;
+		map<string , int> mymap;
 		for(int j=0;j<n;j++){
 			string s;
 			cin>>s;
