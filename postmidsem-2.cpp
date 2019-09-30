@@ -59,7 +59,7 @@ int main(){
 	for(ll i=down.size()-2;i>0;i--){
 		v.push_back(down[i]);
 	}
-	cout<<endl;
+	cout<<v.size()<<endl;
 	for(ll i=0;i<v.size();i++){
 		cout<<v[i].first<< " "<<v[i].second<<endl;
 	}
